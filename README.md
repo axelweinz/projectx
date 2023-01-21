@@ -1,3 +1,3 @@
 # projectx
 
-Project X test
+Project X
