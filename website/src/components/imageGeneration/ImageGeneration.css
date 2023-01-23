@@ -1,0 +1,39 @@
+.imageGeneration {
+  width: 50rem;
+  margin: 10rem auto 4rem auto;
+  align-items: center;
+}
+
+.imageGenerationInteraction {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.imageGenerationInput {
+  padding: 0.6rem 2rem 0.6rem 2rem;
+  box-sizing: border-box;
+  border: 0.15rem solid #0e0e2c;
+  border-radius: 3rem;
+  font-size: 1.5rem;
+  width: 40rem;
+}
+
+.imageGenerationInputNotFocused {
+  color: rgb(14, 14, 44, 0.5);
+}
+
+.imageGenerationInputFocused {
+  color: rgb(14, 14, 44, 1);
+}
+
+.imageGenerationButton {
+  padding: 0.6rem 2rem 0.6rem 2rem;
+  box-sizing: border-box;
+  border: 0.15rem solid #0e0e2c;
+  border-radius: 3rem;
+  color: #0e0e2c;
+  font-size: 1.5rem;
+  background-color: white;
+  cursor: pointer;
+}

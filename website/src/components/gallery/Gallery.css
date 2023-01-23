@@ -1,0 +1,14 @@
+.galleryRow {
+  height: 24rem;
+  width: 72rem;
+  flex-direction: row;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.galleryImg {
+  height: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
