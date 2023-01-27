@@ -1,0 +1,28 @@
+.howItWorks {
+  margin-top: 8rem;
+}
+
+.howItWorksRow {
+  height: 10rem;
+  width: 72rem;
+  flex-direction: row;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.howItWorksImgRow {
+  align-items: center;
+}
+
+.howItWorksImg {
+  width: 8rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.howItWorksText {
+  width: 20rem;
+  margin-right: auto;
+  margin-left: auto;
+}
