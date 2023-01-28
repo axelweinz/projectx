@@ -1,0 +1,9 @@
+.checkoutPage {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.checkoutPageContent {
+  flex: 1;
+}
