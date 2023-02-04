@@ -1,24 +1,38 @@
 import { createContext, useState } from "react";
-import { products } from "../models/Products";
+import { CartItem } from "../models/CartItem";
+import { products } from "../statics/Products";
 
-interface CartItem {
-  id: number;
-  quantity: number;
-}
+export type CartContextType = {
+  items: CartItem[];
+  getItemQuantity: (id: number) => number;
+  addItem: (id: number) => void;
+  subtractItem: (id: number) => void;
+  getTotalCost: () => number;
+};
 
-const CartContext = createContext({
-  items: [{}],
-  getItemQuantity: (id: number) => {},
-  addItem: (id: number) => {},
-  subtractItem: (id: number) => {},
-  getTotalCost: () => {},
-});
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const CartProvider = (children: JSX.Element) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+const CartProvider = (props: { children: JSX.Element }) => {
+  const [items, setItems] = useState<CartItem[]>([
+    {
+      id: 1,
+      quantity: 1,
+      imgSrc: "hej123",
+    },
+    {
+      id: 1,
+      quantity: 1,
+      imgSrc: "hej123",
+    },
+    {
+      id: 1,
+      quantity: 1,
+      imgSrc: "hej123",
+    },
+  ]);
 
   const getItemQuantity = (id: number) => {
-    const quantity = cartItems.find((product) => product.id === id)?.quantity;
+    const quantity = items.find((product) => product.id === id)?.quantity;
 
     return quantity ? quantity : 0;
   };
@@ -27,16 +41,17 @@ const CartProvider = (children: JSX.Element) => {
     const quantity = getItemQuantity(id);
 
     if (quantity === 0) {
-      setCartItems([
-        ...cartItems,
+      setItems([
+        ...items,
         {
           id: id,
           quantity: 1,
+          imgSrc: "soup2.jpg",
         },
       ]);
     } else {
-      setCartItems(
-        cartItems.map((item) =>
+      setItems(
+        items.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity + 1 } : item
         )
       );
@@ -47,14 +62,14 @@ const CartProvider = (children: JSX.Element) => {
     const quantity = getItemQuantity(id);
 
     if (quantity === 1) {
-      setCartItems((cartItems) =>
+      setItems((cartItems) =>
         cartItems.filter((item) => {
           return item.id !== id;
         })
       );
     } else {
-      setCartItems(
-        cartItems.map((item) =>
+      setItems(
+        items.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity - 1 } : item
         )
       );
@@ -63,7 +78,7 @@ const CartProvider = (children: JSX.Element) => {
 
   const getTotalCost = () => {
     let totalCost = 0;
-    cartItems.map((cartItem) => {
+    items.map((cartItem) => {
       const product = products.find((product) => product.id === cartItem.id);
 
       return product ? (totalCost += product.price) : (totalCost += 0);
@@ -74,14 +89,14 @@ const CartProvider = (children: JSX.Element) => {
   return (
     <CartContext.Provider
       value={{
-        items: cartItems,
+        items,
         getItemQuantity,
         addItem,
         subtractItem,
         getTotalCost,
       }}
     >
-      {children}
+      {props.children}
     </CartContext.Provider>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 import "./index.css";
 import Checkout from "./pages/checkout/Checkout";
 import Home from "./pages/home/Home";
@@ -9,15 +10,17 @@ import reportWebVitals from "./reportWebVitals";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

@@ -15,6 +15,11 @@
   letter-spacing: -0.2rem;
 }
 
+.logoLink {
+  text-decoration: none;
+  color: #0e0e2c;
+}
+
 .checkout-button,
 .checkout-button:visited {
   padding: 0.6rem 2rem 0.6rem 2rem;

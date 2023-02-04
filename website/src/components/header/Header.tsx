@@ -3,8 +3,12 @@ import "./Header.css";
 const Header = () => {
   return (
     <header className="header">
-      <h1 className="logo">PSTR lab</h1>
-      <a href="./" className="checkout-button">
+      <h1 className="logo">
+        <a className="logoLink" href="./">
+          PSTR lab
+        </a>
+      </h1>
+      <a href="./checkout" className="checkout-button">
         Kassa
       </a>
     </header>
