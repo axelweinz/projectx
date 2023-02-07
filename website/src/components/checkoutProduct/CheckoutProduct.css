@@ -1,0 +1,40 @@
+.checkoutProduct {
+  height: 12rem;
+  width: 50rem;
+  flex-direction: row;
+  display: flex;
+  margin: 0rem auto 0rem auto;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid #0e0e2c;
+}
+
+.checkoutProductDesc {
+  flex-direction: row;
+  display: flex;
+  width: 16rem;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.checkoutProductImg {
+  height: 10rem;
+}
+
+.checkoutProductQuantity {
+  display: flex;
+  flex-direction: row;
+  width: 14rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkoutProductQuantityButton {
+  padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+  border: 0.15rem solid #0e0e2c;
+  border-radius: 3rem;
+  color: #0e0e2c;
+  font-size: 1.5rem;
+  background-color: white;
+  cursor: pointer;
+}
