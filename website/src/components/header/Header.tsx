@@ -1,16 +1,26 @@
 import "./Header.css";
+import { CartContext, CartContextType } from "../../context/CartContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const cart = useContext(CartContext) as CartContextType;
+
   return (
     <header className="header">
       <h1 className="logo">
-        <a className="logoLink" href="./">
+        <Link className="logoLink" to="/">
           PSTR lab
-        </a>
+        </Link>
       </h1>
-      <a href="./checkout" className="checkout-button">
-        Kassa
-      </a>
+      <Link className="checkout-button" to="/checkout">
+        Kassa &#40;
+        {cart.items.reduce(
+          (totalQuantity, item) => totalQuantity + item.quantity,
+          0
+        )}
+        &#41;
+      </Link>
     </header>
   );
 };

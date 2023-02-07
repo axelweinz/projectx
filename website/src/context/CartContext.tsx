@@ -13,23 +13,7 @@ export type CartContextType = {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const CartProvider = (props: { children: JSX.Element }) => {
-  const [items, setItems] = useState<CartItem[]>([
-    {
-      id: 1,
-      quantity: 1,
-      imgSrc: "hej123",
-    },
-    {
-      id: 1,
-      quantity: 1,
-      imgSrc: "hej123",
-    },
-    {
-      id: 1,
-      quantity: 1,
-      imgSrc: "hej123",
-    },
-  ]);
+  const [items, setItems] = useState<CartItem[]>([]);
 
   const getItemQuantity = (id: number) => {
     const quantity = items.find((product) => product.id === id)?.quantity;
